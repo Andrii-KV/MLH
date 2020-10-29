@@ -1,0 +1,7 @@
+{
+  "label": ".ant-form-item-label",
+  "name": "#name",
+  "gender": ".ant-radio-input",
+  "age": "#age",
+  "story": "#story"
+}
