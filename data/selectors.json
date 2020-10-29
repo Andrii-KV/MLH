@@ -1,7 +1,12 @@
 {
+  "header": "h3",
+  "subHeader": "p",
   "label": ".ant-form-item-label",
   "name": "#name",
   "gender": ".ant-radio-input",
+  "radioBtn": ".ant-radio",
   "age": "#age",
-  "story": "#story"
+  "story": ".ant-select-selection-search",
+  "dragAndDropField": ".ant-upload",
+  "submitButton": ".ant-btn"
 }
