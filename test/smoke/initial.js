@@ -12,7 +12,6 @@ describe('My Little Hero', function () {
             browser.url('https://qa-apps.netlify.app/app_my_hero');
             browser.maximizeWindow()
             browser.deleteAllCookies();
-            browser.dele
             let title = browser.getTitle();
             expect(title).toEqual('MLH trial');
         });
