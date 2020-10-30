@@ -4,9 +4,12 @@
   "label": ".ant-form-item-label",
   "name": "#name",
   "gender": ".ant-radio-input",
+  "radioBtnText": ".ant-radio-wrapper",
   "radioBtn": ".ant-radio",
   "age": "#age",
-  "story": ".ant-select-selection-search",
+  "story": ".ant-select-selection-placeholder",
   "dragAndDropField": ".ant-upload",
+  "dropdownSelections" : ".ant-select-selector",
+  "dropdownStory": ".ant-select-item-option-content",
   "submitButton": ".ant-btn"
 }
