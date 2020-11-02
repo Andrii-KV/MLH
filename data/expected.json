@@ -19,5 +19,6 @@
   "story6": "Tragedy",
   "story7": "Comedy",
   "labelImage": "5. Upload an image (optional).",
-  "textInDragAndDrop": "Click or drag and drop"
+  "textInDragAndDrop": "Click or drag and drop",
+  "textSubmitButton": "Create!"
 }

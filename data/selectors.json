@@ -11,5 +11,7 @@
   "dragAndDropField": ".ant-upload",
   "dropdownSelections" : ".ant-select-selector",
   "dropdownStory": ".ant-select-item-option-content",
-  "submitButton": ".ant-btn"
+  "submitButton": ".ant-btn",
+  "storyPage": ".ant-card-body",
+  "tryAgainBtn" : ".btn-primary"
 }
