@@ -3,9 +3,7 @@ const exp = require('../../data/expected.json');
 import {field,story,gender } from "../../data/helpers";
 const path = require('path');
 const data = require("../../data/testData.json");
-const inputValues4 = require('../../helpers/inputValues4');
-const inputValues4AndClick = require('../../helpers/inputValues4AndClick');
-
+import {inputValues4, inputValues4AndClick} from "../../helpers/methods";
 
 describe('My Little Hero', ()=> {
 
@@ -20,22 +18,13 @@ describe('My Little Hero', ()=> {
 
     });
 
-
-
-
-
-
-
-
     describe("CREATE A STORY",()=>{
+        afterEach(() => {
+            $(sel.tryAgainBtn).click();
+        })
 
-        it('should create a story with required fields only', function () {
-            $(sel.name).setValue("Nick");
-            $$(sel.radioBtn)[gender.HE].click();
-            $(sel.age).setValue(38);
-            $(sel.dropdownSelections).click();
-            $$(sel.dropdownStory)[story.comedy].click();
-            $(sel.submitButton).click();
+        xit('should create a story with required fields only', function () {
+            inputValues4AndClick(data.name, data.gender.he, data.age, data.storyType);
             expect($(sel.storyPage).isDisplayed()).toEqual(true);
 
         });
@@ -43,12 +32,7 @@ describe('My Little Hero', ()=> {
         it('should create a story with all fields', function () {
             const filePath = path.join(__dirname, '../../data/2.jpg');
             const remoteFilePath = browser.uploadFile(filePath);
-            $(sel.tryAgainBtn).click();
-            $(sel.name).setValue("Nick");
-            $$(sel.radioBtn)[gender.HE].click();
-            $(sel.age).setValue("38");
-            $(sel.dropdownSelections).click();
-            $$(sel.dropdownStory)[story.comedy].click();
+            inputValues4(data.name, data.gender.he, data.age, data.storyType);
             browser.execute(function () {
                 document.getElementsByTagName('input')[6].style.display = 'block';
             });
