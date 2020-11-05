@@ -1,10 +1,9 @@
 const sel = require('../../data/selectors.json');
 const exp = require('../../data/expected.json');
-import {field,story,gender } from "../../data/helpers";
+import {field, gender, story, image, name, age } from "../../data/helpers";
 const path = require('path');
 const data = require("../../data/testData.json");
-const inputValues4 = require('../../helpers/inputValues4');
-const inputValues4AndClick = require('../../helpers/inputValues4AndClick');
+import {inputValues4, inputValues4AndClick, inputValues5AndClick} from "../../helpers/methods"
 
 
 describe('My Little Hero', ()=> {
@@ -20,42 +19,22 @@ describe('My Little Hero', ()=> {
 
     });
 
-
-
-
-
-
-
-
     describe("CREATE A STORY",()=>{
+        afterEach(()=>{
+            $(sel.tryAgainBtn).click();
+        })
 
-        it('should create a story with required fields only', function () {
-            $(sel.name).setValue("Nick");
-            $$(sel.radioBtn)[gender.HE].click();
-            $(sel.age).setValue(38);
-            $(sel.dropdownSelections).click();
-            $$(sel.dropdownStory)[story.comedy].click();
-            $(sel.submitButton).click();
+        xit('should create a story with required fields only', function () {
+            inputValues4AndClick(name.userHe, gender.HE, age["123"], story.comedy);
+            browser.pause(2000)
             expect($(sel.storyPage).isDisplayed()).toEqual(true);
+
 
         });
 
         it('should create a story with all fields', function () {
-            const filePath = path.join(__dirname, '../../data/2.jpg');
-            const remoteFilePath = browser.uploadFile(filePath);
-            $(sel.tryAgainBtn).click();
-            $(sel.name).setValue("Nick");
-            $$(sel.radioBtn)[gender.HE].click();
-            $(sel.age).setValue("38");
-            $(sel.dropdownSelections).click();
-            $$(sel.dropdownStory)[story.comedy].click();
-            browser.execute(function () {
-                document.getElementsByTagName('input')[6].style.display = 'block';
-            });
-            $('.ant-upload input').waitForDisplayed();
-
-            $('.ant-upload input').setValue(remoteFilePath);
-            $(sel.submitButton).click();
+            inputValues5AndClick(name.userHe, gender.HE, age["123"], story.comedy, image["1"])
+            browser.pause(2000)
             expect($(sel.storyPage).isDisplayed()).toEqual(true);
         });
 

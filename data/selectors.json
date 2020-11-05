@@ -13,6 +13,7 @@
   "dropdownStory": ".ant-select-item-option-content",
   "submitButton": ".ant-btn",
   "storyPage": ".ant-card-body",
-  "tryAgainBtn": ".btn-primary"
+  "tryAgainBtn": ".btn-primary",
+  "uploadImageLink": ".ant-upload input"
 
 }

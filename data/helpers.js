@@ -20,6 +20,19 @@ const story = {
     comedy: 6,
 }
 
+const image = {
+    1: '../data/image/2.jpg'
+}
+
+const name = {
+    "userHe": "Nick",
+    "userShe": "LadyBug",
+    "userIt": "Rock"
+}
+
+const age ={
+    "123": 123
+}
 
 
-module.exports = { field, gender, story};
+module.exports = { field, gender, story, image, name, age};
