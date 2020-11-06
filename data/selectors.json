@@ -14,5 +14,7 @@
   "submitButton": ".ant-btn",
   "storyPage": ".ant-card-body",
   "tryAgainBtn": ".btn-primary",
-  "uploadImageLink": ".ant-upload input"
+  "uploadImageLink": ".ant-upload input",
+  "subHeaderStory": ".mb-4",
+  "storyImage": ".mb-2"
 }

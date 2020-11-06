@@ -21,5 +21,6 @@
   "story7": "Comedy",
   "labelImage": "5. Upload an image (optional).",
   "textInDragAndDrop": "Click or drag and drop",
-  "textSubmitButton": "Create!"
+  "textSubmitButton": "Create!",
+  "defaultImageArea": "https://qa-apps.netlify.app/static/error.86e8f937.png"
 }
