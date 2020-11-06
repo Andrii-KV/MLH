@@ -23,10 +23,10 @@ describe("My Little Hero", () => {
     it("Verify name letters input (70) length", function () {
       browser.refresh();
       $(sel.name).setValue(
-        "Character Count Tool  Character Counter is a free character counter to"
+          "Character Count Tool  Character Counter is a free character counter to"
       );
       expect($(sel.name).getValue()).toEqual(
-        "Character Count Tool  Character Counter is a free character counter to"
+          "Character Count Tool  Character Counter is a free character counter to"
       );
     });
 
@@ -39,43 +39,22 @@ describe("My Little Hero", () => {
     it("Verify name numbers input (70) length", function () {
       browser.refresh();
       $(sel.name).setValue(
-        "1234567890123456789012345678901234567890123456789012345678901234567890"
+          "1234567890123456789012345678901234567890123456789012345678901234567890"
       );
       expect($(sel.name).getValue()).toEqual(
-        "1234567890123456789012345678901234567890123456789012345678901234567890"
+          "1234567890123456789012345678901234567890123456789012345678901234567890"
       );
     });
 
     it("Verify name symbols input (70) length", function () {
       browser.refresh();
       $(sel.name).setValue(
-        "ͳϙϾͼϚϛϡϠϕϔ⨊⨇⨄⨆⨌⨨⨧⨢⨟⨞⅟⅘Ⅶ⁰₂ⅺⅱⅳ≹←→▶ÄäãɒÆ$₶﷼₷₴₮_+-=[]{}﷼₾|/?><.,!@#$%^&*()"
+          "ͳϙϾͼϚϛϡϠϕϔ⨊⨇⨄⨆⨌⨨⨧⨢⨟⨞⅟⅘Ⅶ⁰₂ⅺⅱⅳ≹←→▶ÄäãɒÆ$₶﷼₷₴₮_+-=[]{}﷼₾|/?><.,!@#$%^&*()"
       );
       expect($(sel.name).getValue()).toEqual(
-        "ͳϙϾͼϚϛϡϠϕϔ⨊⨇⨄⨆⨌⨨⨧⨢⨟⨞⅟⅘Ⅶ⁰₂ⅺⅱⅳ≹←→▶ÄäãɒÆ$₶﷼₷₴₮_+-=[]{}﷼₾|/?><.,!@#$%^&*()"
+          "ͳϙϾͼϚϛϡϠϕϔ⨊⨇⨄⨆⨌⨨⨧⨢⨟⨞⅟⅘Ⅶ⁰₂ⅺⅱⅳ≹←→▶ÄäãɒÆ$₶﷼₷₴₮_+-=[]{}﷼₾|/?><.,!@#$%^&*()"
       );
-    });
-  });
-
-  describe.skip("mainFunctionality", () => {
-    it("TEST", function () {
-      $(sel.name).setValue(data.name);
-      $$(sel.radioBtn)[data.gender.she].click();
-      $(sel.age).setValue(data.age);
-      $(sel.dropdownSelections).click();
-      $$(sel.dropdownStory)[story.comedy].click();
-
-      expect($(sel.submitButton).isEnabled()).toEqual(true);
-    });
-    it("TEST1", function () {
-      inputValues4(data.name, data.gender.she, data.age, data.storyType);
-      expect($(sel.submitButton).isEnabled()).toEqual(true);
-    });
-
-    it("TEST2", function () {
-      browser.refresh();
-      inputValues4AndClick(data.name, data.gender.he, data.age, data.storyType);
-      expect($(sel.tryAgainBtn).isDisplayed()).toEqual(true);
     });
   });
 });
+
