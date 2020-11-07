@@ -28,6 +28,6 @@ const name = {
   userIt: 'Rock',
 };
 const age = {
-  option1: 123,
+  number1: 50,
 };
 module.exports = { field, gender, story, image, name, age };

@@ -7,6 +7,8 @@
   "radioBtnText": ".ant-radio-wrapper",
   "radioBtn": ".ant-radio",
   "age": "#age",
+  "spinnerAgeUp": ".ant-input-number-handler-up",
+  "spinnerAgeDown": ".ant-input-number-handler-down",
   "story": ".ant-select-selection-placeholder",
   "dragAndDropField": ".ant-upload",
   "dropdownSelections": ".ant-select-selector",
@@ -18,4 +20,5 @@
   "uploadImageLink": ".ant-upload input",
   "subHeaderStory": ".mb-4",
   "storyImage": ".mb-2"
+
 }
