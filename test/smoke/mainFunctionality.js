@@ -9,14 +9,14 @@ describe('MAIN FUNCTIONALITY', () => {
     browser.maximizeWindow();
   });
 
-  xdescribe('CREATE A STORY', () => {
+  describe('CREATE A STORY', () => {
     it('should create a story with required fields only', function () {
-      inputValues4AndClick(name.userHe, gender.HE, age.option1, story.comedy);
+      inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
       expect($(sel.storyPage).isDisplayed()).toEqual(true);
     });
 
     it('should create a story with all fields', function () {
-      inputValues5AndClick(name.userHe, gender.HE, age.option1, story.comedy, image.testImage);
+      inputValues5AndClick(name.userHe, gender.HE, age.number1, story.comedy, image.testImage);
       expect($(sel.storyPage).isDisplayed()).toEqual(true);
     });
 
@@ -44,17 +44,17 @@ describe('MAIN FUNCTIONALITY', () => {
     it('SUBMIT button is INACTIVE with NAME,GENDER,AGE field filled', () => {
       $(sel.name).setValue(name.userHe);
       $$(sel.gender)[gender.HE].click();
-      $(sel.age).setValue(age.option1);
+      $(sel.age).setValue(age.number1);
       expect($(sel.submitButton).isClickable()).toEqual(false);
     });
 
     it('SUBMIT Button is ACTIVE with REQUIRED fields filled up', () => {
-      inputValues4(name.userHe, gender.HE, age.option1, story.comedy);
+      inputValues4(name.userHe, gender.HE, age.number1, story.comedy);
       expect($(sel.submitButton).isClickable()).toEqual(true);
     });
 
     it('SUBMIT Button is ACTIVE with ALL fields filled up', () => {
-      inputValues5(name.userHe, gender.HE, age.option1, story.comedy, image.testImage);
+      inputValues5(name.userHe, gender.HE, age.number1, story.comedy, image.testImage);
       expect($(sel.submitButton).isClickable()).toEqual(true);
     });
 
