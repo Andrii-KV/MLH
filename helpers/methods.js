@@ -1,12 +1,12 @@
-const sel = require("../data/selectors.json");
-const path = require("path");
+const sel = require('../data/selectors.json');
+const path = require('path');
 
 function inputValues4(name, gender, age, storyType) {
   $(sel.name).setValue(name);
   $$(sel.gender)[gender].click();
   $(sel.age).setValue(age);
   $(sel.dropdownSelections).click();
-  $$(sel.dropdownStory)[storyType].click();
+  $$(sel.storyPositionInDropdown)[storyType].click();
 }
 
 function inputValues4AndClick(name, gender, age, storyType) {
@@ -17,7 +17,7 @@ function inputValues4AndClick(name, gender, age, storyType) {
 function inputValues5(name, gender, age, storyType, image) {
   inputValues4(name, gender, age, storyType);
   browser.execute(function () {
-    document.getElementsByTagName("input")[6].style.display = "block";
+    document.getElementsByTagName('input')[6].style.display = 'block';
   });
   const filePath = path.join(__dirname, image);
   const remoteFilePath = browser.uploadFile(filePath);
@@ -30,9 +30,4 @@ function inputValues5AndClick(name, gender, age, storyType, image) {
   $(sel.submitButton).click();
 }
 
-module.exports = {
-  inputValues4,
-  inputValues4AndClick,
-  inputValues5AndClick,
-  inputValues5,
-};
+module.exports = { inputValues4, inputValues4AndClick, inputValues5AndClick, inputValues5 };
