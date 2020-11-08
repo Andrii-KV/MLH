@@ -3,10 +3,7 @@ import { age, gender, image, name, story } from '../../data/testData';
 const sel = require('../../data/selectors.json');
 const exp = require('../../data/expected.json');
 const path = require('path');
-// let contentMode = browser.execute(() => {
-//   let style = document.defaultView.getComputedStyle(document.querySelector('body'),'::before');
-//   return style.getPropertyValue('content')
-// });
+
 
 describe('MAIN FUNCTIONALITY', () => {
   before(() => {
@@ -76,14 +73,14 @@ describe('MAIN FUNCTIONALITY', () => {
   describe("ERROR MESSAGE",()=>{
     afterEach(()=> {
       browser.refresh();
-    })
+    });
 
 
     it('should check that ERROR MESSAGE displayed when name field empty', function () {
       $(sel.name).setValue(name.userIt);
       clearInputBox(sel.name);
       $(sel.errorMessage).waitForDisplayed();
-      expect($(sel.errorMessage).isDisplayed()).toEqual(true)
+      expect($(sel.errorMessage).isDisplayed()).toEqual(true);
     });
 
     it('should check that ERROR MESSAGE = "Required" when name field is empty', function () {
@@ -96,7 +93,7 @@ describe('MAIN FUNCTIONALITY', () => {
     it('should check that ERROR MESSAGE displayed when name field over 71 symbols', function () {
       $(sel.name).setValue(name.user71Symbols);
       $(sel.errorMessage).waitForDisplayed();
-      expect($(sel.errorMessage).isDisplayed()).toEqual(true)
+      expect($(sel.errorMessage).isDisplayed()).toEqual(true);
     });
 
     it('should check that ERROR MESSAGE = "70 symbols max" when user enter name bigger than 70 symbols', function () {
@@ -108,74 +105,81 @@ describe('MAIN FUNCTIONALITY', () => {
     it('should check that ERROR MESSAGE displayed when clicking age spinner down', function () {
       $(sel.spinnerAgeDown).click();
       $(sel.errorMessage).waitForDisplayed();
-      expect($(sel.errorMessage).isDisplayed()).toEqual(true)
+      expect($(sel.errorMessage).isDisplayed()).toEqual(true);
     });
 
 
     it('should check that ERROR MESSAGE = "looks like unreal age" when clicking age spinner down', function () {
       $(sel.spinnerAgeDown).click();
       $(sel.errorMessage).waitForDisplayed();
-      expect($(sel.errorMessage).getText()).toEqual(exp["errorMSG.UnrealAge"])
+      expect($(sel.errorMessage).getText()).toEqual(exp["errorMSG.UnrealAge"]);
     });
 
     it('should check that ERROR MESSAGE displayed when input -10 in age field', function () {
       $(sel.age).setValue(age.number2);
       $(sel.errorMessage).waitForDisplayed();
-      expect($(sel.errorMessage).isDisplayed()).toEqual(true)
+      expect($(sel.errorMessage).isDisplayed()).toEqual(true);
     });
 
     it('should check that ERROR MESSAGE = "looks like unreal age" when input -10 in age field', function () {
       $(sel.age).setValue(age.number2);
       $(sel.errorMessage).waitForDisplayed();
-      expect($(sel.errorMessage).getText()).toEqual(exp["errorMSG.UnrealAge"])
+      expect($(sel.errorMessage).getText()).toEqual(exp["errorMSG.UnrealAge"]);
     });
 
     it('should check that ERROR MESSAGE displayed when clicking age spinner down and clear input', function () {
       $(sel.spinnerAgeDown).click();
       clearInputBox(sel.age);
       $(sel.errorMessage).waitForDisplayed();
-      expect($(sel.errorMessage).isDisplayed()).toEqual(true)
+      expect($(sel.errorMessage).isDisplayed()).toEqual(true);
     });
 
     it('should check that ERROR MESSAGE = "Required" when clicking age spinner down and clear input', function () {
       $(sel.spinnerAgeDown).click();
       clearInputBox(sel.age);
       $(sel.errorMessage).waitForDisplayed();
-      expect($(sel.errorMessage).getText()).toEqual(exp["errorMSG.Required"])
+      expect($(sel.errorMessage).getText()).toEqual(exp["errorMSG.Required"]);
     });
 
     it('should check that ERROR MESSAGE displayed when input -10 in age field and clear input', function () {
       $(sel.age).setValue(age.number2);
       clearInputBox(sel.age);
       $(sel.errorMessage).waitForDisplayed();
-      expect($(sel.errorMessage).isDisplayed()).toEqual(true)
+      expect($(sel.errorMessage).isDisplayed()).toEqual(true);
     });
 
     it('should check that ERROR MESSAGE = "Required" when input -10 in age field and clear input', function () {
       $(sel.age).setValue(age.number2);
       clearInputBox(sel.age);
       $(sel.errorMessage).waitForDisplayed();
-      expect($(sel.errorMessage).getText()).toEqual(exp["errorMSG.Required"])
+      expect($(sel.errorMessage).getText()).toEqual(exp["errorMSG.Required"]);
     });
 
     it("should throw an error while trying to upload the PDF file", ()=> {
       inputValues5(name.userIt,gender.IT, age.number1, story.journeyAndReturn, image.testImagePdf)
       expect($(sel.errorMessageImage).isDisplayed()).toEqual(true);
-    })
+    });
 
     it("error message should be = 'You can only upload JPG/PNG file!' while trying to upload the PDF file", ()=> {
-      inputValues5(name.userIt,gender.IT, age.number1, story.journeyAndReturn, image.testImagePdf)
+      inputValues5(name.userIt,gender.IT, age.number1, story.journeyAndReturn, image.testImagePdf);
       expect($(sel.errorMessageImage).getText()).toEqual(exp.errorMessageImage);
-    })
+    });
 
-    it("should throw an error while trying to upload the PNG file 4.1 MB", ()=> {
-      inputValues5(name.userIt,gender.IT, age.number1, story.journeyAndReturn, image.testImagePdf)
+    it("should throw an error while trying to upload the JPG file 4.1 MB", ()=> {
+      inputValues5(name.userIt,gender.IT, age.number1, story.journeyAndReturn, image.testImageJpg41);
       expect($(sel.errorMessageImage).isDisplayed()).toEqual(true);
+      browser.pause(2000);
+    });
+
+    it("error message should be = 'Image must be smaller than 4MB!' while trying to upload the JPG over 4.1 MB file", ()=> {
+      inputValues5(name.userIt,gender.IT, age.number1, story.journeyAndReturn, image.testImageJpg41);
+      expect($(sel.errorMessageImage).getText()).toEqual(exp.errorMessageImageSmaller4Mb);
+      browser.pause(2000);
     });
 
 
 
 
-  })
+  });
 });
 
