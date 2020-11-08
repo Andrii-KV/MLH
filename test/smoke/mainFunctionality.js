@@ -168,17 +168,12 @@ describe('MAIN FUNCTIONALITY', () => {
     it("should throw an error while trying to upload the JPG file 4.1 MB", ()=> {
       inputValues5(name.userIt,gender.IT, age.number1, story.journeyAndReturn, image.testImageJpg41);
       expect($(sel.errorMessageImage).isDisplayed()).toEqual(true);
-      browser.pause(2000);
     });
 
     it("error message should be = 'Image must be smaller than 4MB!' while trying to upload the JPG over 4.1 MB file", ()=> {
       inputValues5(name.userIt,gender.IT, age.number1, story.journeyAndReturn, image.testImageJpg41);
       expect($(sel.errorMessageImage).getText()).toEqual(exp.errorMessageImageSmaller4Mb);
-      browser.pause(2000);
     });
-
-
-
 
   });
 });
