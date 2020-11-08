@@ -14,7 +14,7 @@ describe('MAIN FUNCTIONALITY', () => {
     browser.maximizeWindow();
   });
 
-  describe.skip('CREATE A STORY', () => {
+  describe('CREATE A STORY', () => {
     it('should create a story with required fields only', function () {
       inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
       expect($(sel.storyPage).isDisplayed()).toEqual(true);
@@ -35,7 +35,7 @@ describe('MAIN FUNCTIONALITY', () => {
     });
   });
 
-  describe.skip('SUBMIT BUTTON', () => {
+  describe('SUBMIT BUTTON', () => {
     it('SUBMIT button is INACTIVE by default', () => {
       expect($(sel.submitButton).isClickable()).toEqual(false);
     });
@@ -167,6 +167,12 @@ describe('MAIN FUNCTIONALITY', () => {
       inputValues5(name.userIt,gender.IT, age.number1, story.journeyAndReturn, image.testImagePdf)
       expect($(sel.errorMessageImage).getText()).toEqual(exp.errorMessageImage);
     })
+
+    it("should throw an error while trying to upload the PNG file 4.1 MB", ()=> {
+      inputValues5(name.userIt,gender.IT, age.number1, story.journeyAndReturn, image.testImagePdf)
+      expect($(sel.errorMessageImage).isDisplayed()).toEqual(true);
+    });
+
 
 
 
