@@ -23,5 +23,10 @@
   "textInDragAndDrop": "Click or drag and drop",
   "textSubmitButton": "Create!",
   "defaultImageArea": "https://qa-apps.netlify.app/static/error.86e8f937.png",
-  "one": "1"
+  "one": "1",
+  "errorMSG.Required": "Required",
+  "errorMSG.70SymbolsMax": "70 symbols max",
+  "errorMSG.UnrealAge": "looks like unreal age",
+  "errorMessageImage": "You can only upload JPG/PNG file!"
+
 }
