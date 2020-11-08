@@ -22,7 +22,8 @@ const story = {
 const image = {
   testImageJpg: '../data/image/2.jpg',
   testImagePng: '../data/image/2.png',
-  testImagePdf: '../data/image/2.pdf'
+  testImagePdf: '../data/image/2.pdf',
+  testImageJpg41: '../data/image/2(4,1 mb).jpg',
 
 };
 const name = {
