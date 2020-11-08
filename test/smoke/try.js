@@ -34,7 +34,7 @@ describe('STORY PAGE FUNCTIONALITY', () => {
     });
 
     it('VERIFY THAT UPLOADED IMAGE IS VISIBLE', () => {
-      inputValues5AndClick(name.userHe, gender.HE, age.number1, story.comedy, image.testImage);
+      inputValues5AndClick(name.userHe, gender.HE, age.number1, story.comedy, image.testImageJpg);
       expect($(sel.storyImage).getAttribute('src')).not.toEqual(exp.defaultImageArea);
       $(sel.tryAgainBtn).click();
     });

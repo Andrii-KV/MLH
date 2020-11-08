@@ -20,14 +20,22 @@ const story = {
   comedy: 6,
 };
 const image = {
-  testImage: '../data/image/2.jpg',
+  testImageJpg: '../data/image/2.jpg',
+  testImagePng: '../data/image/2.png',
+  testImagePdf: '../data/image/2.pdf'
+
 };
 const name = {
   userHe: 'Nick',
   userShe: 'LadyBug',
   userIt: 'Rock',
+  user71Symbols: "Adolph Blaine Charles David Earl Frederick Gerald Hubert Irvin John Ken",
+
 };
 const age = {
   number1: 50,
+  number2: -10,
+
 };
+
 module.exports = { field, gender, story, image, name, age };

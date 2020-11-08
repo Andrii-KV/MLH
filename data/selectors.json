@@ -19,6 +19,8 @@
   "tryAgainBtn": ".btn-primary",
   "uploadImageLink": ".ant-upload input",
   "subHeaderStory": ".mb-4",
-  "storyImage": ".mb-2"
+  "storyImage": ".mb-2",
+  "errorMessage": "[role='alert']",
+  "errorMessageImage": ".ant-message-error"
 
 }
