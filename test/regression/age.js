@@ -31,5 +31,11 @@ describe('AGE REGRESSION', () => {
             $(sel.spinnerAgeUp).click();
             expect($(sel.age).getValue()).toEqual(exp.one);
         });
+
+        it('Verify that the age field accepts 12 symbols', function () {
+            $(sel.age).setValue(age.number3);
+            expect($(sel.errorMessage).isDisplayed()).not.toEqual(true);
+        });
+
     });
 });
