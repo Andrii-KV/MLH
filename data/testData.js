@@ -36,8 +36,14 @@ const name = {
 const age = {
   number1: 50,
   number2: -10,
-  number3: 123456789012
+  number3: 123456789012,
+  number4: 5,
+  number5: 1234567890123
 
 };
 
-module.exports = { field, gender, story, image, name, age };
+const ageErrors = {
+  required: 1
+};
+
+module.exports = { field, gender, story, image, name, age, ageErrors };
