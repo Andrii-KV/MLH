@@ -1,4 +1,4 @@
-import { inputValues4, inputValues5, inputValues4AndClick, inputValues5AndClick } from '../../helpers/methods';
+import { inputValues4, inputValues5, inputValues4AndClick, inputValues5AndClick,clearInputBox } from '../../helpers/methods';
 import { age, gender, image, name, story } from '../../data/testData';
 const sel = require('../../data/selectors.json');
 const exp = require('../../data/expected.json');
@@ -62,5 +62,22 @@ describe('MAIN FUNCTIONALITY', () => {
       browser.refresh();
     });
   });
+
+  describe("ERROR MESSAGE",()=>{
+
+    it('should check that ERROR MESSAGE displayed when name field empty', function () {
+      $(sel.name).setValue(age.number1)
+      clearInputBox(sel.name)
+      $("div[role='alert']").waitForDisplayed()
+      expect($("div[role='alert']").isDisplayed()).toEqual(true)
+    });
+
+    it('should check that ERROR MESSAGE displayed when name field empty', function () {
+      $(sel.name).setValue(age.number1)
+      clearInputBox(sel.name)
+      $("div[role='alert']").waitForDisplayed()
+      expect($("div[role='alert']").getText()).toEqual("Required")
+    });
+  })
 });
 

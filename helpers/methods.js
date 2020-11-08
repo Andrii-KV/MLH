@@ -30,4 +30,9 @@ function inputValues5AndClick(name, gender, age, storyType, image) {
   $(sel.submitButton).click();
 }
 
-module.exports = { inputValues4, inputValues4AndClick, inputValues5AndClick, inputValues5 };
+function clearInputBox(input){
+  $(input).click();
+  browser.keys(["\ue009"+"a", "\ue017", "\ue000"]); // ctr+a, del
+}
+
+module.exports = { inputValues4, inputValues4AndClick, inputValues5AndClick, inputValues5, clearInputBox };

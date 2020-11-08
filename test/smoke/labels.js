@@ -1,5 +1,5 @@
 const sel = require('../../data/selectors.json');
-import { field, gender } from '../../data/testData';
+import {field, gender, story} from '../../data/testData';
 
 describe('Labels exist', () => {
   before(() => {
@@ -65,5 +65,12 @@ describe('Labels exist', () => {
 
   it('TC-015 Submit button is displayed', () => {
     expect($(sel.submitButton).isDisplayed()).toEqual(true);
+  });
+
+  it('should #######', function () {
+    $(sel.dropdownSelections).click();
+     $$(sel.storyPositionInDropdown)[story.tragedy].click()
+     expect($(".ant-select-selection-item").getText()).toEqual("Tragedy")
+    browser.pause(3000)
   });
 });
