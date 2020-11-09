@@ -10,6 +10,7 @@
   "spinnerAgeUp": ".ant-input-number-handler-up",
   "spinnerAgeDown": ".ant-input-number-handler-down",
   "story": ".ant-select-selection-placeholder",
+  "selectedStoryType":".ant-select-selection-item",
   "dragAndDropField": ".ant-upload",
   "dropdownSelections": ".ant-select-selector",
   "storyPositionInDropdown": ".ant-select-item-option-content",
