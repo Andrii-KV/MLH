@@ -31,6 +31,17 @@ const name = {
   userShe: 'LadyBug',
   userIt: 'Rock',
   user71Symbols: "Adolph Blaine Charles David Earl Frederick Gerald Hubert Irvin John Ken",
+  user70Symbols: "Adolph Blaine Charles David Earl Frederick Gerald Hubert Irvin John Ke",
+  userOneSymbol: "!",
+  userOneLetter: "N",
+  userOneNumber: "0",
+  userNameLetters: "Name Hero",
+  userNameNumbers: "1234",
+  userNameSymbols: "(',&%-=.#Æ!@$",
+  userNameLetNumSym: "Name1234(',&%-=.#Æ!@$",
+  userNameUpperCase: "A B C D E F G H I K L M N O P Q R S T V X Y Z",
+  userNameLowerCase: "a b c d e f g h i j k l m n o p q r s t u x y z",
+
 
 };
 const age = {
