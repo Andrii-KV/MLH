@@ -176,5 +176,50 @@ describe('MAIN FUNCTIONALITY', () => {
     });
 
   });
+
+
+  describe("TYPE OF STORY SELECTED",()=> {
+    beforeEach(() => {
+      browser.refresh();
+      $(sel.dropdownSelections).click();
+      $(sel.dropdownMenu).waitForDisplayed();
+    });
+    it('##### Verify that selected story type is displayed = Overcoming the Monster', () => {
+      $$(sel.storyPositionInDropdown)[story.overcomingTheMonster].click();
+      $(sel.selectedStoryType).waitForDisplayed();
+      expect($(sel.selectedStoryType).getText()).toEqual(exp.OvercomingTheMonster);
+      });
+    it('##### Verify that selected story type is displayed = Rebirth', () => {
+      $$(sel.storyPositionInDropdown)[story.rebirth].click();
+      $(sel.selectedStoryType).waitForDisplayed();
+      expect($(sel.selectedStoryType).getText()).toEqual(exp.Rebirth);
+    });
+    it('##### Verify that selected story type is displayed = Quest', () => {
+      $$(sel.storyPositionInDropdown)[story.quest].click();
+      $(sel.selectedStoryType).waitForDisplayed();
+      expect($(sel.selectedStoryType).getText()).toEqual(exp.Quest);
+    });
+    it('##### Verify that selected story type is displayed = Journey and Return', () => {
+      $$(sel.storyPositionInDropdown)[story.journeyAndReturn].click();
+      $(sel.selectedStoryType).waitForDisplayed();
+      expect($(sel.selectedStoryType).getText()).toEqual(exp.JourneyAndReturn);
+    });
+    it('##### Verify that selected story type is displayed = Rags and Riches', () => {
+      $$(sel.storyPositionInDropdown)[story.ragsAndRiches].click();
+      $(sel.selectedStoryType).waitForDisplayed();
+      expect($(sel.selectedStoryType).getText()).toEqual(exp.RagsAndRiches);
+    });
+    it('##### Verify that selected story type is displayed = Tragedy', () => {
+      $$(sel.storyPositionInDropdown)[story.tragedy].click();
+      $(sel.selectedStoryType).waitForDisplayed();
+      expect($(sel.selectedStoryType).getText()).toEqual(exp.Tragedy);
+    });
+    it('##### Verify that selected story type is displayed = Comedy', () => {
+      $$(sel.storyPositionInDropdown)[story.comedy].click();
+      $(sel.selectedStoryType).waitForDisplayed();
+      expect($(sel.selectedStoryType).getText()).toEqual(exp.Comedy);
+    });
+
+  });
 });
 
