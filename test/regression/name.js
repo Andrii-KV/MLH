@@ -11,7 +11,7 @@ describe("NAME REGRESSION", ()=> {
 
     });
     beforeEach(()=> {
-       clearInputBox($(sel.name))
+       browser.refresh();
     })
 
     it('input name one Symbol', function () {

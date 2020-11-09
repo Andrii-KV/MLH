@@ -75,7 +75,6 @@ describe('MAIN FUNCTIONALITY', () => {
       browser.refresh();
     });
 
-
     it('should check that ERROR MESSAGE displayed when name field empty', function () {
       $(sel.name).setValue(name.userIt);
       clearInputBox(sel.name);
@@ -137,6 +136,7 @@ describe('MAIN FUNCTIONALITY', () => {
     it('should check that ERROR MESSAGE = "Required" when clicking age spinner down and clear input', function () {
       $(sel.spinnerAgeDown).click();
       clearInputBox(sel.age);
+      browser.keys("Backspace")
       $(sel.errorMessage).waitForDisplayed();
       expect($(sel.errorMessage).getText()).toEqual(exp["errorMSG.Required"]);
     });
@@ -144,6 +144,7 @@ describe('MAIN FUNCTIONALITY', () => {
     it('should check that ERROR MESSAGE displayed when input -10 in age field and clear input', function () {
       $(sel.age).setValue(age.number2);
       clearInputBox(sel.age);
+      browser.keys("Backspace")
       $(sel.errorMessage).waitForDisplayed();
       expect($(sel.errorMessage).isDisplayed()).toEqual(true);
     });
@@ -151,27 +152,32 @@ describe('MAIN FUNCTIONALITY', () => {
     it('should check that ERROR MESSAGE = "Required" when input -10 in age field and clear input', function () {
       $(sel.age).setValue(age.number2);
       clearInputBox(sel.age);
+      browser.keys("Backspace")
       $(sel.errorMessage).waitForDisplayed();
       expect($(sel.errorMessage).getText()).toEqual(exp["errorMSG.Required"]);
     });
 
     it("should throw an error while trying to upload the PDF file", ()=> {
       inputValues5(name.userIt,gender.IT, age.number1, story.journeyAndReturn, image.testImagePdf)
+      $(sel.errorMessageImage).waitForDisplayed()
       expect($(sel.errorMessageImage).isDisplayed()).toEqual(true);
     });
 
     it("error message should be = 'You can only upload JPG/PNG file!' while trying to upload the PDF file", ()=> {
       inputValues5(name.userIt,gender.IT, age.number1, story.journeyAndReturn, image.testImagePdf);
+      $(sel.errorMessageImage).waitForDisplayed()
       expect($(sel.errorMessageImage).getText()).toEqual(exp.errorMessageImage);
     });
 
     it("should throw an error while trying to upload the JPG file 4.1 MB", ()=> {
       inputValues5(name.userIt,gender.IT, age.number1, story.journeyAndReturn, image.testImageJpg41);
+      $(sel.errorMessageImage).waitForDisplayed()
       expect($(sel.errorMessageImage).isDisplayed()).toEqual(true);
     });
 
     it("error message should be = 'Image must be smaller than 4MB!' while trying to upload the JPG over 4.1 MB file", ()=> {
       inputValues5(name.userIt,gender.IT, age.number1, story.journeyAndReturn, image.testImageJpg41);
+      $(sel.errorMessageImage).waitForDisplayed()
       expect($(sel.errorMessageImage).getText()).toEqual(exp.errorMessageImageSmaller4Mb);
     });
 

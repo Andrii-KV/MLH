@@ -31,8 +31,8 @@ function inputValues5AndClick(name, gender, age, storyType, image) {
 }
 
 function clearInputBox(input){
-  $(input).click();
-  browser.keys(["\ue009"+"a", "\ue017", "\ue000"]); // ctr+a, del
+  $(input).doubleClick();
+  browser.keys("Delete");
 }
 
 module.exports = { inputValues4, inputValues4AndClick, inputValues5AndClick, inputValues5, clearInputBox };
