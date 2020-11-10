@@ -35,12 +35,10 @@ function clearInputBox(input){
   browser.keys("Delete");
 }
 
-
 function genderOnTheStoryPage(sel, gen){
   let text = $(sel).getText();
   text = text.split(" ");
   return text[48] === gen[0] && text[63] === gen[2] && text[42] === gen[1];
-
 }
 
 function numToText(num){
@@ -52,6 +50,23 @@ function numToText(num){
   return ''+(num<0?0:num?23-num?H(num):'birthday':9/0)
 }
 
+function nameInTheStoryHeader(sel, name){
+  let text = $(sel).getText();
+  text = text.split(" ");
+  return text[4] === name;
+}
 
-module.exports = { inputValues4, inputValues4AndClick, inputValues5AndClick, inputValues5, clearInputBox, genderOnTheStoryPage, numToText};
+function nameInTheStoryText(sel, name){
+  let text = $(sel).getText();
+  text = text.split(" ");
+  return text[14] == name;
+}
+
+function ageOnTheStoryPage(sel, age){
+  let text = $(sel).getText();
+  text = text.split(" ");
+  return text[17] === age;
+}
+
+module.exports = { inputValues4, inputValues4AndClick, inputValues5AndClick, inputValues5, clearInputBox, genderOnTheStoryPage, numToText, nameInTheStoryHeader, nameInTheStoryText};
 

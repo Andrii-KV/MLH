@@ -63,4 +63,8 @@ const genderStoryPage = {
   It: ["It", "its", "unequal.\nIt"]
 };
 
-module.exports = { field, gender, story, image, name, age, ageErrors, genderStoryPage};
+const nameStoryPage = {
+  He: ["it.\nNick,"]
+};
+
+module.exports = { field, gender, story, image, name, age, ageErrors, genderStoryPage, nameStoryPage};
