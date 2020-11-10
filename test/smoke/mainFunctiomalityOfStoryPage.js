@@ -1,5 +1,7 @@
-import { inputValues4AndClick, inputValues5AndClick, genderOnTheStoryPage } from '../../helpers/methods';
+
+import { inputValues4AndClick, inputValues5AndClick, numToText, genderOnTheStoryPage } from '../../helpers/methods';
 import { age, gender, image, name, story, genderStoryPage } from '../../data/testData';
+
 const sel = require('../../data/selectors.json');
 const exp = require('../../data/expected.json');
 
@@ -41,6 +43,7 @@ describe('STORY PAGE FUNCTIONALITY', () => {
       $(sel.tryAgainBtn).click();
     });
   });
+
   describe('NAME, GENDER, AGE ON THE STORY PAGE', () => {
 
     it('VERIFY THAT STORY PAGE HAS THE GENDER HE AS CHOSEN ON THE HOME PAGE', () => {
@@ -61,4 +64,5 @@ describe('STORY PAGE FUNCTIONALITY', () => {
       $(sel.tryAgainBtn).click();
     });
   });
+
 });
