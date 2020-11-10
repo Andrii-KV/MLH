@@ -35,4 +35,12 @@ function clearInputBox(input){
   browser.keys("Delete");
 }
 
-module.exports = { inputValues4, inputValues4AndClick, inputValues5AndClick, inputValues5, clearInputBox };
+function genderOnTheStoryPage(sel, gen){
+  let text = $(sel).getText();
+  text = text.split(" ");
+  return text[48] === gen[0] && text[63] === gen[2] && text[42] === gen[1];
+
+}
+
+
+module.exports = { inputValues4, inputValues4AndClick, inputValues5AndClick, inputValues5, clearInputBox,genderOnTheStoryPage};

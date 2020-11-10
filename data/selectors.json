@@ -17,6 +17,7 @@
   "dropdownMenu": ".ant-select-dropdown-placement-bottomLeft",
   "submitButton": ".ant-btn",
   "storyPage": ".ant-card-body",
+  "storyPageComedyText": ".card-text",
   "tryAgainBtn": ".btn-primary",
   "uploadImageLink": ".ant-upload input",
   "subHeaderStory": ".mb-4",
