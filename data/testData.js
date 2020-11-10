@@ -57,4 +57,10 @@ const ageErrors = {
   required: 1
 };
 
-module.exports = { field, gender, story, image, name, age, ageErrors };
+const genderStoryPage = {
+  He: ["He", "his", "unequal.\nHe"],
+  She: ["She", "her", "unequal.\nShe"],
+  It: ["It", "its", "unequal.\nIt"]
+};
+
+module.exports = { field, gender, story, image, name, age, ageErrors, genderStoryPage};
