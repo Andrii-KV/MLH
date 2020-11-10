@@ -35,6 +35,14 @@ function clearInputBox(input){
   browser.keys("Delete");
 }
 
+
+function genderOnTheStoryPage(sel, gen){
+  let text = $(sel).getText();
+  text = text.split(" ");
+  return text[48] === gen[0] && text[63] === gen[2] && text[42] === gen[1];
+
+}
+
 function numToText(num){
   let M =['','thousand','million','billion']
   let B ='# one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen'.split` `
@@ -44,4 +52,6 @@ function numToText(num){
   return ''+(num<0?0:num?23-num?H(num):'birthday':9/0)
 }
 
-module.exports = { inputValues4, inputValues4AndClick, inputValues5AndClick, inputValues5, clearInputBox, numToText };
+
+module.exports = { inputValues4, inputValues4AndClick, inputValues5AndClick, inputValues5, clearInputBox, genderOnTheStoryPage, numToText};
+
