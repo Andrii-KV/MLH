@@ -1,4 +1,4 @@
-import { inputValues4AndClick, inputValues5AndClick } from '../../helpers/methods';
+import { inputValues4AndClick, inputValues5AndClick, numToText } from '../../helpers/methods';
 import { age, gender, image, name, story } from '../../data/testData';
 const sel = require('../../data/selectors.json');
 const exp = require('../../data/expected.json');
@@ -40,4 +40,3 @@ describe('STORY PAGE FUNCTIONALITY', () => {
     });
   });
 });
-
