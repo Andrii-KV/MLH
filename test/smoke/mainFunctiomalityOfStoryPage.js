@@ -1,5 +1,5 @@
-import { inputValues4AndClick, inputValues5AndClick, genderOnTheStoryPage} from '../../helpers/methods';
-import { age, gender, image, name, story, genderStoryPage} from '../../data/testData';
+import { inputValues4AndClick, inputValues5AndClick, genderOnTheStoryPage } from '../../helpers/methods';
+import { age, gender, image, name, story, genderStoryPage } from '../../data/testData';
 const sel = require('../../data/selectors.json');
 const exp = require('../../data/expected.json');
 
@@ -9,7 +9,8 @@ describe('STORY PAGE FUNCTIONALITY', () => {
     browser.maximizeWindow();
   });
 
-  describe.skip('STORY PAGE TEXT', () => {
+  describe('STORY PAGE TEXT', () => {
+
     before(() => {
       inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
     });
@@ -26,7 +27,7 @@ describe('STORY PAGE FUNCTIONALITY', () => {
     });
   });
 
-  describe.skip('IMAGE ON THE STORY PAGE', () => {
+  describe('IMAGE ON THE STORY PAGE', () => {
 
     it('VERIFY THAT STORY PAGE HAS NO IMAGE BY DEFAULT', () => {
       inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
@@ -44,22 +45,20 @@ describe('STORY PAGE FUNCTIONALITY', () => {
 
     it('VERIFY THAT STORY PAGE HAS THE GENDER HE AS CHOSEN ON THE HOME PAGE', () => {
       inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
-      const s = $(sel.storyPageComedyText).getText();
       expect(genderOnTheStoryPage(sel.storyPageComedyText, genderStoryPage.He)).toEqual(true);
       $(sel.tryAgainBtn).click();
     });
+
     it('VERIFY THAT STORY PAGE HAS THE GENDER SHE AS CHOSEN ON THE HOME PAGE', () => {
       inputValues4AndClick(name.userShe, gender.SHE, age.number1, story.comedy);
-      const s = $(sel.storyPageComedyText).getText();
       expect(genderOnTheStoryPage(sel.storyPageComedyText, genderStoryPage.She)).toEqual(true);
       $(sel.tryAgainBtn).click();
     });
+
     it('VERIFY THAT STORY PAGE HAS THE GENDER IT AS CHOSEN ON THE HOME PAGE', () => {
       inputValues4AndClick(name.userIt, gender.IT, age.number1, story.comedy);
-      const s = $(sel.storyPageComedyText).getText();
       expect(genderOnTheStoryPage(sel.storyPageComedyText, genderStoryPage.It)).toEqual(true);
       $(sel.tryAgainBtn).click();
     });
   });
 });
-
