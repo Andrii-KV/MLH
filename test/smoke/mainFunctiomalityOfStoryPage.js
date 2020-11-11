@@ -1,6 +1,6 @@
 
-import { inputValues4AndClick, inputValues5AndClick, numToText, genderOnTheStoryPage } from '../../helpers/methods';
-import { age, gender, image, name, story, genderStoryPage } from '../../data/testData';
+import { inputValues4AndClick, inputValues5AndClick, numToText, genderOnTheStoryPage, nameInTheStoryHeader, nameInTheStoryText } from '../../helpers/methods';
+import { age, gender, image, name, story, genderStoryPage, nameStoryPage } from '../../data/testData';
 
 const sel = require('../../data/selectors.json');
 const exp = require('../../data/expected.json');
@@ -63,6 +63,20 @@ describe('STORY PAGE FUNCTIONALITY', () => {
       expect(genderOnTheStoryPage(sel.storyPageComedyText, genderStoryPage.It)).toEqual(true);
       $(sel.tryAgainBtn).click();
     });
+
+    it('VERIFY THAT THE HEADER ON THE STORY PAGE HAS THE NAME AS CHOSEN ON THE HOME PAGE', () => {
+      inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
+      expect(nameInTheStoryHeader(sel.subHeaderStory, name.userHe)).toEqual(true);
+      $(sel.tryAgainBtn).click();
+    });
+
+    it('VERIFY THAT THE HEADER ON THE STORY PAGE HAS THE NAME AS CHOSEN ON THE HOME PAGE', () => {
+      inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
+      expect(nameInTheStoryText(sel.storyPageComedyText, nameStoryPage.He)).toEqual(true);
+      $(sel.tryAgainBtn).click();
+    });
+
+
   });
 
 });
