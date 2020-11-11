@@ -1,5 +1,12 @@
-
-import { inputValues4AndClick, inputValues5AndClick, numToText, genderOnTheStoryPage, nameInTheStoryHeader, nameInTheStoryText } from '../../helpers/methods';
+import {
+  inputValues4AndClick,
+  ageInTheStoryText,
+  inputValues5AndClick,
+  numToText,
+  genderOnTheStoryPage,
+  nameInTheStorySubHeader,
+  nameInTheStoryText,
+} from '../../helpers/methods';
 import { age, gender, image, name, story, genderStoryPage, nameStoryPage } from '../../data/testData';
 
 const sel = require('../../data/selectors.json');
@@ -11,26 +18,7 @@ describe('STORY PAGE FUNCTIONALITY', () => {
     browser.maximizeWindow();
   });
 
-  describe('STORY PAGE TEXT', () => {
-
-    before(() => {
-      inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
-    });
-
-    it('VERIFY THAT HEADER = My Little Hero', () => {
-      expect($(sel.header).getText()).toEqual(exp.labelHeader);
-    });
-
-    it('VERIFY SUBHEADER CREATED WITH OUR HERO NAME ', () => {
-      expect($(sel.subHeaderStory).getText().includes(name.userHe)).toEqual(true);
-    });
-    after(() => {
-      $(sel.tryAgainBtn).click();
-    });
-  });
-
   describe('IMAGE ON THE STORY PAGE', () => {
-
     it('VERIFY THAT STORY PAGE HAS NO IMAGE BY DEFAULT', () => {
       inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
       expect($(sel.storyImage).getAttribute('src')).toEqual(exp.defaultImageArea);
@@ -44,39 +32,45 @@ describe('STORY PAGE FUNCTIONALITY', () => {
     });
   });
 
-  describe('NAME, GENDER, AGE ON THE STORY PAGE', () => {
+  describe('NAME, GENDER, AGE OF A THE STORY PAGE', () => {
+    it('VERIFY THAT STORY NAME CONTAINS OUR HERO NAME = "Nick" ', () => {
+      inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
+      expect($(sel.subHeaderStory).getText().includes(name.userHe)).toEqual(true);
+    });
 
-    it('VERIFY THAT STORY PAGE HAS THE GENDER HE AS CHOSEN ON THE HOME PAGE', () => {
+    it('VERIFY THAT STORY NAME CONTAINS OUR HERO NAME = "Nick" IN THE RIGHT PLACE', () => {
+      inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
+      expect(nameInTheStorySubHeader()).toEqual(name.userHe);
+    });
+
+    it('VERIFY THAT STORY GENERATED WITH OUR HERO NAME = "Nick" ', () => {
+      inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
+      expect(nameInTheStoryText(sel.storyPageComedyText, nameStoryPage.He)).toEqual(nameStoryPage.He);
+    });
+
+    it('VERIFY THAT STORY CREATED WITH GENDER = HE in body of a story', () => {
       inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
       expect(genderOnTheStoryPage(sel.storyPageComedyText, genderStoryPage.He)).toEqual(true);
-      $(sel.tryAgainBtn).click();
     });
 
-    it('VERIFY THAT STORY PAGE HAS THE GENDER SHE AS CHOSEN ON THE HOME PAGE', () => {
+    it('VERIFY THAT STORY CREATED WITH GENDER = SHE in body of a story', () => {
       inputValues4AndClick(name.userShe, gender.SHE, age.number1, story.comedy);
       expect(genderOnTheStoryPage(sel.storyPageComedyText, genderStoryPage.She)).toEqual(true);
-      $(sel.tryAgainBtn).click();
     });
 
-    it('VERIFY THAT STORY PAGE HAS THE GENDER IT AS CHOSEN ON THE HOME PAGE', () => {
+    it('VERIFY THAT STORY CREATED WITH GENDER = IT in body of a story', () => {
       inputValues4AndClick(name.userIt, gender.IT, age.number1, story.comedy);
       expect(genderOnTheStoryPage(sel.storyPageComedyText, genderStoryPage.It)).toEqual(true);
-      $(sel.tryAgainBtn).click();
     });
 
-    it('VERIFY THAT THE HEADER ON THE STORY PAGE HAS THE NAME AS CHOSEN ON THE HOME PAGE', () => {
-      inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
-      expect(nameInTheStoryHeader(sel.subHeaderStory, name.userHe)).toEqual(true);
-      $(sel.tryAgainBtn).click();
+    it('VERIFY THAT AGE of a hero = "fifty" in a body of a CREATED STORY', () => {
+      inputValues4AndClick(name.userIt, gender.IT, age.number1, story.comedy);
+      expect(ageInTheStoryText(sel.storyPageComedyText, age.number1)).toEqual(numToText(age.number1));
     });
 
-    it('VERIFY THAT THE HEADER ON THE STORY PAGE HAS THE NAME AS CHOSEN ON THE HOME PAGE', () => {
-      inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
-      expect(nameInTheStoryText(sel.storyPageComedyText, nameStoryPage.He)).toEqual(true);
+    afterEach(() => {
+      $(sel.tryAgainBtn).waitForDisplayed();
       $(sel.tryAgainBtn).click();
     });
-
-
   });
-
 });

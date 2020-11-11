@@ -1,11 +1,10 @@
 
-import { inputValues4, inputValues5, inputValues4AndClick, inputValues5AndClick, clearInputBox, genderOnTheStoryPage } from '../../helpers/methods';
+import { inputValues4, inputValues5, inputValues4AndClick, inputValues5AndClick, clearInputBox} from '../../helpers/methods';
 
 
 import { age, gender, image, name, story } from '../../data/testData';
 const sel = require('../../data/selectors.json');
 const exp = require('../../data/expected.json');
-const path = require('path');
 
 describe('MAIN FUNCTIONALITY', () => {
   before(() => {
