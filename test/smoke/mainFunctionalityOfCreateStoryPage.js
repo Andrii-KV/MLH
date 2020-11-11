@@ -1,8 +1,6 @@
+import { inputValues4, inputValues5, inputValues4AndClick, inputValues5AndClick, clearInputBox } from '../../helpers/methods';
 
-import { inputValues4, inputValues5, inputValues4AndClick, inputValues5AndClick, clearInputBox} from '../../helpers/methods';
-
-
-import { age, gender, image, name, story } from '../../data/testData';
+import { number, gender, image, name, story } from '../../data/testData';
 const sel = require('../../data/selectors.json');
 const exp = require('../../data/expected.json');
 
@@ -14,21 +12,22 @@ describe('MAIN FUNCTIONALITY', () => {
 
   describe('CREATE A STORY', () => {
     it('should create a story with required fields only', function () {
-      inputValues4AndClick(name.userHe, gender.HE, age.number1, story.comedy);
+      inputValues4AndClick(name.userHe, gender.HE, number.age, story.comedy);
       expect($(sel.storyPage).isDisplayed()).toEqual(true);
     });
 
     it('should create a story with all fields (*.jpg)', function () {
-      inputValues5AndClick(name.userHe, gender.HE, age.number1, story.comedy, image.testImageJpg);
+      inputValues5AndClick(name.userHe, gender.HE, number.age, story.comedy, image.testImageJpg);
       expect($(sel.storyPage).isDisplayed()).toEqual(true);
     });
 
     it('should create a story with all fields (*.png)', function () {
-      inputValues5AndClick(name.userHe, gender.HE, age.number1, story.comedy, image.testImagePng);
+      inputValues5AndClick(name.userHe, gender.HE, number.age, story.comedy, image.testImagePng);
       expect($(sel.storyPage).isDisplayed()).toEqual(true);
     });
 
     afterEach(() => {
+      $(sel.tryAgainBtn).waitForDisplayed();
       $(sel.tryAgainBtn).click();
     });
   });
@@ -52,17 +51,17 @@ describe('MAIN FUNCTIONALITY', () => {
     it('SUBMIT button is INACTIVE with NAME,GENDER,AGE field filled', () => {
       $(sel.name).setValue(name.userHe);
       $$(sel.gender)[gender.HE].click();
-      $(sel.age).setValue(age.number1);
+      $(sel.age).setValue(number.age);
       expect($(sel.submitButton).isClickable()).toEqual(false);
     });
 
     it('SUBMIT Button is ACTIVE with REQUIRED fields filled up', () => {
-      inputValues4(name.userHe, gender.HE, age.number1, story.comedy);
+      inputValues4(name.userHe, gender.HE, number.age, story.comedy);
       expect($(sel.submitButton).isClickable()).toEqual(true);
     });
 
     it('SUBMIT Button is ACTIVE with ALL fields filled up', () => {
-      inputValues5(name.userHe, gender.HE, age.number1, story.comedy, image.testImageJpg);
+      inputValues5(name.userHe, gender.HE, number.age, story.comedy, image.testImageJpg);
       expect($(sel.submitButton).isClickable()).toEqual(true);
     });
 
@@ -115,13 +114,13 @@ describe('MAIN FUNCTIONALITY', () => {
     });
 
     it('should check that ERROR MESSAGE displayed when input -10 in age field', function () {
-      $(sel.age).setValue(age.number2);
+      $(sel.age).setValue(number.number2);
       $(sel.errorMessage).waitForDisplayed();
       expect($(sel.errorMessage).isDisplayed()).toEqual(true);
     });
 
     it('should check that ERROR MESSAGE = "looks like unreal age" when input -10 in age field', function () {
-      $(sel.age).setValue(age.number2);
+      $(sel.age).setValue(number.number2);
       $(sel.errorMessage).waitForDisplayed();
       expect($(sel.errorMessage).getText()).toEqual(exp['errorMSG.UnrealAge']);
     });
@@ -142,7 +141,7 @@ describe('MAIN FUNCTIONALITY', () => {
     });
 
     it('should check that ERROR MESSAGE displayed when input -10 in age field and clear input', function () {
-      $(sel.age).setValue(age.number2);
+      $(sel.age).setValue(number.number2);
       clearInputBox(sel.age);
       browser.keys('Backspace');
       $(sel.errorMessage).waitForDisplayed();
@@ -150,7 +149,7 @@ describe('MAIN FUNCTIONALITY', () => {
     });
 
     it('should check that ERROR MESSAGE = "Required" when input -10 in age field and clear input', function () {
-      $(sel.age).setValue(age.number2);
+      $(sel.age).setValue(number.number2);
       clearInputBox(sel.age);
       browser.keys('Backspace');
       $(sel.errorMessage).waitForDisplayed();
@@ -158,32 +157,31 @@ describe('MAIN FUNCTIONALITY', () => {
     });
 
     it('should throw an error while trying to upload the PDF file', () => {
-      inputValues5(name.userIt, gender.IT, age.number1, story.journeyAndReturn, image.testImagePdf);
+      inputValues5(name.userIt, gender.IT, number.age, story.journeyAndReturn, image.testImagePdf);
       $(sel.errorMessageImage).waitForDisplayed();
       expect($(sel.errorMessageImage).isDisplayed()).toEqual(true);
     });
 
     it("error message should be = 'You can only upload JPG/PNG file!' while trying to upload the PDF file", () => {
-      inputValues5(name.userIt, gender.IT, age.number1, story.journeyAndReturn, image.testImagePdf);
+      inputValues5(name.userIt, gender.IT, number.age, story.journeyAndReturn, image.testImagePdf);
       $(sel.errorMessageImage).waitForDisplayed();
       expect($(sel.errorMessageImage).getText()).toEqual(exp.errorMessageImage);
     });
 
     it('should throw an error while trying to upload the JPG file 4.1 MB', () => {
-      inputValues5(name.userIt, gender.IT, age.number1, story.journeyAndReturn, image.testImageJpg41);
+      inputValues5(name.userIt, gender.IT, number.age, story.journeyAndReturn, image.testImageJpg41);
       $(sel.errorMessageImage).waitForDisplayed();
       expect($(sel.errorMessageImage).isDisplayed()).toEqual(true);
     });
 
     it("error message should be = 'Image must be smaller than 4MB!' while trying to upload the JPG over 4.1 MB file", () => {
-      inputValues5(name.userIt, gender.IT, age.number1, story.journeyAndReturn, image.testImageJpg41);
+      inputValues5(name.userIt, gender.IT, number.age, story.journeyAndReturn, image.testImageJpg41);
       $(sel.errorMessageImage).waitForDisplayed();
       expect($(sel.errorMessageImage).getText()).toEqual(exp.errorMessageImageSmaller4Mb);
     });
   });
 
   describe('TYPE OF STORY SELECTED', () => {
-
     beforeEach(() => {
       browser.refresh();
       $(sel.dropdownSelections).click();

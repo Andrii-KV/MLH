@@ -1,4 +1,4 @@
-import {name} from '../../data/testData';
+import { name } from '../../data/testData';
 const sel = require('../../data/selectors.json');
 const exp = require('../../data/expected.json');
 

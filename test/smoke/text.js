@@ -105,6 +105,5 @@ describe('VERIFY TEXT IN LABELS, PLACEHOLDERS ARE CORRECT', () => {
     it('##### Verify story type dropdown menu contains = Comedy', () => {
       expect($$(sel.storyPositionInDropdown)[story.comedy].getText()).toEqual(exp.Comedy);
     });
-
   });
 });

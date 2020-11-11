@@ -41,8 +41,8 @@ const name = {
   userNameUpperCase: 'A B C D E F G H I K L M N O P Q R S T V X Y Z',
   userNameLowerCase: 'a b c d e f g h i j k l m n o p q r s t u x y z',
 };
-const age = {
-  number1: 50,
+const number = {
+  age: 50,
   number2: -10,
   number3: 123456789012,
   number4: 5,
@@ -53,14 +53,4 @@ const ageErrors = {
   required: 1,
 };
 
-const genderStoryPage = {
-  He: ['He', 'his', 'unequal.\nHe'],
-  She: ['She', 'her', 'unequal.\nShe'],
-  It: ['It', 'its', 'unequal.\nIt'],
-};
-
-const nameStoryPage = {
-  He: 'it.\nNick,',
-};
-
-module.exports = { field, gender, story, image, name, age, ageErrors, genderStoryPage, nameStoryPage };
+module.exports = { field, gender, story, image, name, number, ageErrors };
