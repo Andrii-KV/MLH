@@ -35,26 +35,26 @@ function clearInputBox(input) {
   browser.keys('Delete');
 }
 
-function genderInComedyStory() {
+function genderInComedyStory(age) {
   let x = $(sel.storyPageComedyText).getText();
+  x = x.replace(numToText(age), "$");
   x = x.replace(/[\n\r]/g, ' ')
        .replace(/[.,]/g, '');
   x = x.split(' ');
   return [x[43], x[49], x[65]];
 }
 
-function nameInStorySubHeader() {
+function nameInStorySubHeader(name) {
   let x = $(sel.subHeaderStory).getText();
-  x = x.split(' ');
-  return x[4];
+  x = x.slice(15, name.length + 15 );
+  return x;
 }
 
-function nameInComedyStory() {
+function nameInComedyStory(name) {
   let x = $(sel.storyPageComedyText).getText();
   x = x.replace(/[\n\r]/g, ' ')
-       .replace(/[.,]/g, '');
-  x = x.split(' ');
-  return x[15];
+  x = x.slice(71, name.length + 71 )
+  return x;
 }
 
 function numToText(num) {
