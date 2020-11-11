@@ -1,5 +1,4 @@
-import { age, gender, image, name, story } from '../../data/testData';
-import { inputValues4AndClick, inputValues5AndClick, clearInputBox } from '../../helpers/methods';
+import {name} from '../../data/testData';
 const sel = require('../../data/selectors.json');
 const exp = require('../../data/expected.json');
 

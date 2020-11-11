@@ -30,43 +30,60 @@ function inputValues5AndClick(name, gender, age, storyType, image) {
   $(sel.submitButton).click();
 }
 
-function clearInputBox(input){
+function clearInputBox(input) {
   $(input).doubleClick();
-  browser.keys("Delete");
+  browser.keys('Delete');
 }
 
-function genderOnTheStoryPage(sel, gen){
+function genderOnTheStoryPage(sel, gen) {
   let text = $(sel).getText();
-  text = text.split(" ");
+  text = text.split(' ');
   return text[48] === gen[0] && text[63] === gen[2] && text[42] === gen[1];
 }
 
-function numToText(num){
-  let M =['','thousand','million','billion']
-  let B ='# one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen'.split` `
-  let C ='  twenty thirty forty fifty sixty seventy eighty ninety'.split` `
-  let G = num => (99<num?B[num/100|0]+' hundred ':'')+(B[num%=100]||C[num/10|0]+(num%10?'-'+B[num%10]:''))
-  let H = num => [].concat(...(''+num).split(/(?=(?:...)+$)/).map((V,F,num)=>[G(V),M[num.length-1-F]]).filter(V=>V[0])).join` `.replace(/ ?#/g,'').trim``
-  return ''+(num<0?0:num?23-num?H(num):'birthday':9/0)
+function nameInTheStorySubHeader() {
+  let text = $(sel.subHeaderStory).getText();
+  text = text.split(' ');
+  return text[4];
 }
 
-function nameInTheStoryHeader(sel, name){
+//need to fix that
+function nameInTheStoryText(sel) {
   let text = $(sel).getText();
-  text = text.split(" ");
-  return text[4] === name;
+  text = text.split(' ');
+  return text[14];
 }
 
-function nameInTheStoryText(sel, name){
+function numToText(num) {
+  let M = ['', 'thousand', 'million', 'billion'];
+  let B = '# one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen'.split` `;
+  let C = '  twenty thirty forty fifty sixty seventy eighty ninety'.split` `;
+  let G = num => (99 < num ? B[(num / 100) | 0] + ' hundred ' : '') + (B[(num %= 100)] || C[(num / 10) | 0] + (num % 10 ? '-' + B[num % 10] : ''));
+  let H = num =>
+    [].concat(
+      ...('' + num)
+        .split(/(?=(?:...)+$)/)
+        .map((V, F, num) => [G(V), M[num.length - 1 - F]])
+        .filter(V => V[0]),
+    ).join` `.replace(/ ?#/g, '').trim``;
+  return '' + (num < 0 ? 0 : num ? (23 - num ? H(num) : 'birthday') : 9 / 0);
+}
+
+function ageInTheStoryText(sel) {
   let text = $(sel).getText();
-  text = text.split(" ");
-  return text[14] == name;
+  text = text.split(' ');
+  return text[17];
 }
 
-function ageOnTheStoryPage(sel, age){
-  let text = $(sel).getText();
-  text = text.split(" ");
-  return text[17] === age;
-}
-
-module.exports = { inputValues4, inputValues4AndClick, inputValues5AndClick, inputValues5, clearInputBox, genderOnTheStoryPage, numToText, nameInTheStoryHeader, nameInTheStoryText};
-
+module.exports = {
+  inputValues4,
+  inputValues4AndClick,
+  inputValues5AndClick,
+  inputValues5,
+  clearInputBox,
+  genderOnTheStoryPage,
+  numToText,
+  nameInTheStorySubHeader,
+  nameInTheStoryText,
+  ageInTheStoryText,
+};
