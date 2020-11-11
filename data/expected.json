@@ -4,6 +4,9 @@
   "labelSubHeader": "Let's create your own HERO! It's super easy with our application!",
   "labelName": "1. What is your Hero's name?",
   "NamePlaceholder": "Hero's name",
+  "userNameHe": "Nick",
+  "userNameShe": "LadyBug",
+  "userNameIt": "Rock",
   "userOneSymbol": "!",
   "userOneLetter": "N",
   "userOneNumber": "0",
@@ -38,6 +41,8 @@
   "errorMSG.70SymbolsMax": "70 symbols max",
   "errorMSG.UnrealAge": "looks like unreal age",
   "errorMessageImage": "You can only upload JPG/PNG file!",
-  "errorMessageImageSmaller4Mb": "Image must be smaller than 4MB!"
-
+  "errorMessageImageSmaller4Mb": "Image must be smaller than 4MB!",
+  "genderStoryHe": ["his", "He", "He"],
+  "genderStoryShe": ["her", "She", "She"],
+  "genderStoryIt": ["its", "It", "It"]
 }

@@ -35,23 +35,26 @@ function clearInputBox(input) {
   browser.keys('Delete');
 }
 
-function genderOnTheStoryPage(sel, gen) {
-  let text = $(sel).getText();
-  text = text.split(' ');
-  return text[48] === gen[0] && text[63] === gen[2] && text[42] === gen[1];
+function genderInComedyStory() {
+  let x = $(sel.storyPageComedyText).getText();
+  x = x.replace(/[\n\r]/g, ' ')
+       .replace(/[.,]/g, '');
+  x = x.split(' ');
+  return [x[43], x[49], x[65]];
 }
 
-function nameInTheStorySubHeader() {
-  let text = $(sel.subHeaderStory).getText();
-  text = text.split(' ');
-  return text[4];
+function nameInStorySubHeader() {
+  let x = $(sel.subHeaderStory).getText();
+  x = x.split(' ');
+  return x[4];
 }
 
-//need to fix that
-function nameInTheStoryText(sel) {
-  let text = $(sel).getText();
-  text = text.split(' ');
-  return text[14];
+function nameInComedyStory() {
+  let x = $(sel.storyPageComedyText).getText();
+  x = x.replace(/[\n\r]/g, ' ')
+       .replace(/[.,]/g, '');
+  x = x.split(' ');
+  return x[15];
 }
 
 function numToText(num) {
@@ -66,11 +69,11 @@ function numToText(num) {
         .map((V, F, num) => [G(V), M[num.length - 1 - F]])
         .filter(V => V[0]),
     ).join` `.replace(/ ?#/g, '').trim``;
-  return '' + (num < 0 ? 0 : num ? (23 - num ? H(num) : 'birthday') : 9 / 0);
+  return H(num);
 }
 
-function ageInTheStoryText(sel) {
-  let text = $(sel).getText();
+function ageInTheStoryText() {
+  let text = $(sel.storyPageComedyText).getText();
   text = text.split(' ');
   return text[17];
 }
@@ -81,9 +84,9 @@ module.exports = {
   inputValues5AndClick,
   inputValues5,
   clearInputBox,
-  genderOnTheStoryPage,
+  genderInComedyStory,
   numToText,
-  nameInTheStorySubHeader,
-  nameInTheStoryText,
+  nameInStorySubHeader,
+  nameInComedyStory,
   ageInTheStoryText,
 };

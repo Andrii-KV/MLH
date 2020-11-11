@@ -1,5 +1,5 @@
 const sel = require('../../data/selectors.json');
-import {field, gender, story} from '../../data/testData';
+import { field, gender, story } from '../../data/testData';
 
 describe('Labels exist', () => {
   before(() => {
@@ -69,8 +69,8 @@ describe('Labels exist', () => {
 
   it('should #######', function () {
     $(sel.dropdownSelections).click();
-     $$(sel.storyPositionInDropdown)[story.tragedy].click()
-     expect($(".ant-select-selection-item").getText()).toEqual("Tragedy")
-    browser.pause(3000)
+    $$(sel.storyPositionInDropdown)[story.tragedy].click();
+    expect($('.ant-select-selection-item').getText()).toEqual('Tragedy');
+    browser.pause(3000);
   });
 });
