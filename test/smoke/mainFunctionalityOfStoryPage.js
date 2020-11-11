@@ -33,34 +33,34 @@ describe('STORY PAGE FUNCTIONALITY', () => {
   });
 
   describe('NAME, GENDER, AGE OF A THE STORY PAGE', () => {
-    it('VERIFY THAT STORY NAME CONTAINS OUR HERO NAME = "Nick" ', () => {
+    it('VERIFY THAT SUBHEADER CONTAINS OUR HERO NAME = "Nick" ', () => {
       inputValues4AndClick(name.userHe, gender.HE, number.age, story.comedy);
       expect($(sel.subHeaderStory).getText().includes(name.userHe)).toEqual(true);
     });
 
-    it('VERIFY THAT STORY NAME CONTAINS OUR HERO NAME = "Nick" IN THE RIGHT PLACE', () => {
+    it('VERIFY THAT SUBHEADER CONTAINS OUR HERO NAME = "Nick" IN THE RIGHT PLACE', () => {
       inputValues4AndClick(name.userHe, gender.HE, number.age, story.comedy);
-      expect(nameInStorySubHeader()).toEqual(exp.userNameHe);
+      expect(nameInStorySubHeader(name.userHe)).toEqual(exp.userNameHe);
     });
 
     it('VERIFY THAT STORY GENERATED WITH OUR HERO NAME = "Nick" ', () => {
       inputValues4AndClick(name.userHe, gender.HE, number.age, story.comedy);
-      expect(nameInComedyStory()).toEqual(exp.userNameHe);
+      expect(nameInComedyStory(name.userHe)).toEqual(exp.userNameHe);
     });
 
     it('VERIFY THAT STORY CREATED WITH GENDER = HE in body of a story', () => {
       inputValues4AndClick(name.userHe, gender.HE, number.age, story.comedy);
-      expect(genderInComedyStory()).toEqual(exp.genderStoryHe);
+      expect(genderInComedyStory(number.age)).toEqual(exp.genderStoryHe);
     });
 
     it('VERIFY THAT STORY CREATED WITH GENDER = SHE in body of a story', () => {
       inputValues4AndClick(name.userShe, gender.SHE, number.age, story.comedy);
-      expect(genderInComedyStory()).toEqual(exp.genderStoryShe);
+      expect(genderInComedyStory(number.age)).toEqual(exp.genderStoryShe);
     });
 
     it('VERIFY THAT STORY CREATED WITH GENDER = IT in body of a story', () => {
       inputValues4AndClick(name.userIt, gender.IT, number.age, story.comedy);
-      expect(genderInComedyStory()).toEqual(exp.genderStoryIt);
+      expect(genderInComedyStory(number.age)).toEqual(exp.genderStoryIt);
     });
 
     it('VERIFY THAT AGE of a hero = "fifty" in a body of a CREATED STORY', () => {
