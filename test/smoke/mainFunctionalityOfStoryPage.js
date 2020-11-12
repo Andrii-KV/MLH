@@ -52,19 +52,19 @@ describe('MLH-5 STORY PAGE FUNCTIONALITY', () => {
 
     it('MLH-5.2.3 VERIFY THAT STORY CREATED WITH GENDER = HE in body of a story', () => {
       inputValues4AndClick(name.userHe, gender.HE, number.age, story.comedy);
-      expect(genderInComedyStory(number.age)).toEqual(exp.genderStoryHe);
+      expect(genderInComedyStory(name.userHe,number.age)).toEqual(exp.genderStoryHe);
     });
-
+    //
     it('MLH-5.2.4 VERIFY THAT STORY CREATED WITH GENDER = SHE in body of a story', () => {
       inputValues4AndClick(name.userShe, gender.SHE, number.age, story.comedy);
-      expect(genderInComedyStory(number.age)).toEqual(exp.genderStoryShe);
+      expect(genderInComedyStory(name.userShe,number.age)).toEqual(exp.genderStoryShe);
     });
-
+    //
     it('MLH-5.2.5 VERIFY THAT STORY CREATED WITH GENDER = IT in body of a story', () => {
       inputValues4AndClick(name.userIt, gender.IT, number.age, story.comedy);
-      expect(genderInComedyStory(number.age)).toEqual(exp.genderStoryIt);
+      expect(genderInComedyStory(name.userIt,number.age)).toEqual(exp.genderStoryIt);
     });
-
+    //
     it('MLH-5.2.6 VERIFY THAT AGE of a hero = "fifty" in a body of a CREATED STORY', () => {
       inputValues4AndClick(name.userIt, gender.IT, number.age, story.comedy);
       expect(ageInTheStoryText()).toEqual(numToText(number.age));

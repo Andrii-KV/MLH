@@ -35,26 +35,31 @@ function clearInputBox(input) {
   browser.keys('Delete');
 }
 
-function genderInComedyStory(age) {
-  let x = $(sel.storyPageComedyText).getText();
-  x = x.replace(numToText(age), "$");
-  x = x.replace(/[\n\r]/g, ' ')
-       .replace(/[.,]/g, '');
-  x = x.split(' ');
-  return [x[43], x[49], x[65]];
-}
-
 function nameInStorySubHeader(name) {
   let x = $(sel.subHeaderStory).getText();
-  x = x.slice(15, name.length + 15 );
+  x = x.slice(15, name.length + 15);
   return x;
 }
 
 function nameInComedyStory(name) {
   let x = $(sel.storyPageComedyText).getText();
-  x = x.replace(/[\n\r]/g, ' ')
-  x = x.slice(71, name.length + 71 )
+  x = x.replace(/[\n\r]/g, ' ');
+  x = x.slice(71, name.length + 71);
   return x;
+}
+
+function genderInComedyStory(name, age) {
+  let x = $(sel.storyPageComedyText).getText();
+  let n = 71 + name.length;
+  let temp = +x.slice(n + 9, (age + '').length + (n + 9));
+  let a = numToText(age).length + (n + 9);
+  if (temp === age) {
+    a = (age + '').length + (n + 9);
+  }
+  let t = x.slice(a + 1, x.length);
+  t = t.replace(/[\n\r]/g, ' ').replace(/[.,]/g, '');
+  t = t.split(' ');
+  return [t[24], t[30], t[46]];
 }
 
 function numToText(num) {
@@ -77,7 +82,6 @@ function ageInTheStoryText() {
   text = text.split(' ');
   return text[17];
 }
-
 module.exports = {
   inputValues4,
   inputValues4AndClick,
