@@ -53,4 +53,8 @@ const ageErrors = {
   required: 1,
 };
 
-module.exports = { field, gender, story, image, name, number, ageErrors };
+const comedyStoryText = {
+    moral: 1
+};
+
+module.exports = { field, gender, story, image, name, number, ageErrors, comedyStoryText};

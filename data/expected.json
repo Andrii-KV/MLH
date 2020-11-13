@@ -44,5 +44,7 @@
   "errorMessageImageSmaller4Mb": "Image must be smaller than 4MB!",
   "genderStoryHe": ["his", "He", "He"],
   "genderStoryShe": ["her", "She", "She"],
-  "genderStoryIt": ["its", "It", "It"]
+  "genderStoryIt": ["its", "It", "It"],
+  "comedyStoryMoral": "Moral: When you quarrel amongst yourselves, someone else gains from it.",
+  "tryAgainBtnText": "Try again!"
 }
