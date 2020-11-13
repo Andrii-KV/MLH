@@ -7,7 +7,7 @@ import {
   nameInComedyStory,
   nameInStorySubHeader,
 } from '../../helpers/methods';
-import { number, gender, image, name, story } from '../../data/testData';
+import {number, gender, image, name, story, field, comedyStoryText} from '../../data/testData';
 
 const sel = require('../../data/selectors.json');
 const exp = require('../../data/expected.json');
@@ -65,9 +65,34 @@ describe('MLH-5 STORY PAGE FUNCTIONALITY', () => {
       expect(genderInComedyStory(name.userIt,number.age)).toEqual(exp.genderStoryIt);
     });
     //
-    it('MLH-5.2.6 VERIFY THAT AGE of a hero = "fifty" in a body of a CREATED STORY', () => {
+    it('MLH-5.2.6 VERIFY THAT AGE OF A HERO = "fifty" in a body of a CREATED STORY', () => {
       inputValues4AndClick(name.userIt, gender.IT, number.age, story.comedy);
       expect(ageInTheStoryText()).toEqual(numToText(number.age));
+    });
+
+    it('MLH-5.2.7 VERIFY THAT MORAL SECTION IS DISPLAYED IN A BODY OF A CREATED STORY', () => {
+      inputValues4AndClick(name.userIt, gender.IT, number.age, story.comedy);
+      expect($$(sel.storyPageComedyText)[comedyStoryText.moral].isDisplayed()).toEqual(true);
+    });
+
+    it('MLH-5.2.8 VERIFY THAT MORAL SECTION GAS MORAL TEXT IN A CREATED STORY', () => {
+      inputValues4AndClick(name.userIt, gender.IT, number.age, story.comedy);
+      expect($$(sel.storyPageComedyText)[comedyStoryText.moral].getText()).toEqual(exp.comedyStoryMoral);
+    });
+
+    it('MLH-5.2.9 VERIFY THAT TRY AGAIN BUTTON IS DISPLAYED IN A CREATED STORY PAGE', () => {
+      inputValues4AndClick(name.userIt, gender.IT, number.age, story.comedy);
+      expect($(sel.tryAgainBtn).isDisplayed()).toEqual(true);
+    });
+
+    it('MLH-5.2.10 VERIFY THAT TRY AGAIN BUTTON IS CLICKABLE IN A CREATED STORY PAGE', () => {
+      inputValues4AndClick(name.userIt, gender.IT, number.age, story.comedy);
+      expect($(sel.tryAgainBtn).isClickable()).toEqual(true);
+    });
+
+    it('MLH-5.2.11 VERIFY THAT TRY AGAIN BUTTON HAS A TEXT: "Try again!"', () => {
+      inputValues4AndClick(name.userIt, gender.IT, number.age, story.comedy);
+      expect($(sel.tryAgainBtn).getText()).toEqual(exp.tryAgainBtnText);
     });
 
     afterEach(() => {
