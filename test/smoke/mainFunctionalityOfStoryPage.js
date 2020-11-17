@@ -52,22 +52,22 @@ describe('MLH-5 STORY PAGE FUNCTIONALITY', () => {
 
     it('MLH-5.2.3 VERIFY THAT STORY CREATED WITH GENDER = HE in body of a story', () => {
       inputValues4AndClick(name.userHe, gender.HE, number.age, story.comedy);
-      expect(genderInComedyStory(name.userHe,number.age)).toEqual(exp.genderStoryHe);
+      expect(genderInComedyStory()).toEqual(exp.genderStoryHe);
     });
     //
     it('MLH-5.2.4 VERIFY THAT STORY CREATED WITH GENDER = SHE in body of a story', () => {
       inputValues4AndClick(name.userShe, gender.SHE, number.age, story.comedy);
-      expect(genderInComedyStory(name.userShe,number.age)).toEqual(exp.genderStoryShe);
+      expect(genderInComedyStory()).toEqual(exp.genderStoryShe);
     });
     //
     it('MLH-5.2.5 VERIFY THAT STORY CREATED WITH GENDER = IT in body of a story', () => {
       inputValues4AndClick(name.userIt, gender.IT, number.age, story.comedy);
-      expect(genderInComedyStory(name.userIt,number.age)).toEqual(exp.genderStoryIt);
+      expect(genderInComedyStory()).toEqual(exp.genderStoryIt);
     });
     //
     it('MLH-5.2.6 VERIFY THAT AGE OF A HERO = "fifty" in a body of a CREATED STORY', () => {
-      inputValues4AndClick(name.userIt, gender.IT, number.age, story.comedy);
-      expect(ageInTheStoryText()).toEqual(numToText(number.age));
+      inputValues4AndClick(name.userShe, gender.SHE, number.age, story.comedy);
+      expect(ageInTheStoryText(name.userShe,number.age)).toEqual(numToText(number.age));
     });
 
     it('MLH-5.2.7 VERIFY THAT MORAL SECTION IS DISPLAYED IN A BODY OF A CREATED STORY', () => {
@@ -75,7 +75,7 @@ describe('MLH-5 STORY PAGE FUNCTIONALITY', () => {
       expect($$(sel.storyPageComedyText)[comedyStoryText.moral].isDisplayed()).toEqual(true);
     });
 
-    it('MLH-5.2.8 VERIFY THAT MORAL SECTION GAS MORAL TEXT IN A CREATED STORY', () => {
+    it('MLH-5.2.8 VERIFY THAT MORAL SECTION HAS A MORAL TEXT IN A CREATED STORY', () => {
       inputValues4AndClick(name.userIt, gender.IT, number.age, story.comedy);
       expect($$(sel.storyPageComedyText)[comedyStoryText.moral].getText()).toEqual(exp.comedyStoryMoral);
     });

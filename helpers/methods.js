@@ -48,18 +48,18 @@ function nameInComedyStory(name) {
   return x;
 }
 
-function genderInComedyStory(name, age) {
-  let x = $(sel.storyPageComedyText).getText();
-  let n = 71 + name.length;
-  let temp = +x.slice(n + 9, (age + '').length + (n + 9));
-  let a = numToText(age).length + (n + 9);
-  if (temp === age) {
-    a = (age + '').length + (n + 9);
-  }
-  let t = x.slice(a + 1, x.length);
+function genderInComedyStory() {
+  let t = $(sel.storyPageComedyText).getText();
   t = t.replace(/[\n\r]/g, ' ').replace(/[.,]/g, '');
   t = t.split(' ');
-  return [t[24], t[30], t[46]];
+  let arr = [];
+  for (let i = t.length; i > 0; i--) {
+    if (t[i] === 'years') {
+      break;
+    }
+    arr.unshift(t[i]);
+  }
+  return [arr[23], arr[29], arr[45]];
 }
 
 function numToText(num) {
@@ -77,11 +77,17 @@ function numToText(num) {
   return H(num);
 }
 
-function ageInTheStoryText() {
+function ageInTheStoryText(name, age) {
   let text = $(sel.storyPageComedyText).getText();
-  text = text.split(' ');
-  return text[17];
+  let n = 71 + name.length;
+  let a = text.slice(n + 9, numToText(age).length + (n + 9));
+  let temp = +text.slice(n + 9, (age + '').length + (n + 9));
+  if (temp === age) {
+    a = text.slice(n + 9, (age + '').length + (n + 9));
+  }
+  return a;
 }
+
 module.exports = {
   inputValues4,
   inputValues4AndClick,
