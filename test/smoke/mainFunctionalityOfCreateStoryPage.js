@@ -228,6 +228,10 @@ describe('MLH-4 MAIN FUNCTIONALITY', () => {
       $$(sel.storyPositionInDropdown)[story.comedy].click();
       $(sel.selectedStoryType).waitForDisplayed();
       expect($(sel.selectedStoryType).getText()).toEqual(exp.Comedy);
+
+
+      
+
     });
   });
 });
